@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/llmlogo-white.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM Compare</title>
+    <!-- Import Inter from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- For Cabinet Grotesk, you'll need to add it via a custom font import or CDN -->
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400&display=swap"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Update the nav structure -->
+    <div class="nav-container">
+      <nav class="nav">
+        <!-- Left side - Logo and links -->
+        <div class="nav-left">
+          <a href="/" class="nav-logo">
+            <img src="/public/llmlog.svg" alt="LLM Compare Logo" />
+          </a>
+          <button class="nav-menu-button" aria-label="Toggle menu">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                d="M3 12h18M3 6h18M3 18h18"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="nav-links">
+          <a href="#models">Models</a>
+          <a href="#model-comparison">Model Comparison</a>
+          <a href="#find-your-model">Find Your Model</a>
+          <a href="#customize-comparison">Customize Comparison</a>
+        </div>
+
+        <!-- Right side - CTA -->
+        <div class="nav-right">
+          <a href="#models" class="nav-cta">Compare Models</a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- After the navigation and before the main content -->
+    <header class="hero-header">
+      <div class="hero-background">
+        <div class="gradient-blur"></div>
+        <div class="noise-texture"></div>
+      </div>
+      <div class="hero-content">
+        <h1>Compare Leading AI Models</h1>
+        <p>
+          Our comprehensive comparison tool helps you evaluate intelligence,
+          speed, & pricing across leading LLMs in one place
+        </p>
+      </div>
+      <div class="feature-pills">
+        <div class="feature-pill tech-specs">
+          <span class="check-mark">✓</span>
+          <span>Technical Specs</span>
+        </div>
+        <div class="feature-pill perf-metrics">
+          <span class="check-mark">✓</span>
+          <span>Performance Metrics</span>
+        </div>
+        <div class="feature-pill cost-analysis">
+          <span class="check-mark">✓</span>
+          <span>Cost Analysis</span>
+        </div>
+      </div>
+      <div class="hero-buttons">
+        <a href="#models" class="btn btn-primary">Compare Models</a>
+        <a href="#find-your-model" class="btn btn-secondary">Find Your Model</a>
+      </div>
+      <div class="browser-demo">
+        <div class="browser-frame">
+          <!-- <div class="browser-header">
+            <div class="browser-controls">
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+            </div>
+            <div class="browser-address-bar">
+              <span class="browser-lock">🔒</span>
+              <span class="browser-url">aicompare.com</span>
+            </div>
+            <div class="browser-actions">
+              <span class="browser-refresh">⟳</span>
+              <span class="browser-more">+</span>
+            </div>
+          </div> -->
+          <div class="browser-content">
+            <div class="demo-query">
+              <div class="demo-prompt" id="demo-question">
+                Explain quantum computing to a 10-year old
+              </div>
+            </div>
+
+            <div class="demo-responses">
+              <div class="model-response" id="response-container">
+                <div class="model-icon" id="model-icon">
+                  <img
+                    src="https://placehold.co/40x40"
+                    alt="Model logo"
+                    id="model-logo"
+                  />
+                </div>
+                <div class="response-content">
+                  <div class="model-name" id="model-name">GPT-4o</div>
+                  <p id="model-response" class="typing-response">
+                    Imagine you have a super special toy that can play with many
+                    different games at the same time...
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add the browser demo here -->
+    </header>
+
+    <!-- Add this after the hero header section and before the app div -->
+    <section class="logo-marquee-section">
+      <div class="section-title">
+        <h2 class="marquee-title">Comparing the Best AI Language Models</h2>
+      </div>
+
+      <div class="marquee-container">
+        <div class="marquee-track">
+          <!-- First set of logos (will be duplicated by JavaScript) -->
+          <div class="marquee-content" id="marquee-content">
+            <div class="logo-item">
+              <img src="/logos/openailogo.svg" alt="OpenAI" />
+            </div>
+            <div class="logo-item">
+              <img src="/logos/claudelogo.svg" alt="Anthropic" />
+            </div>
+            <div class="logo-item">
+              <img src="/logos/google-gemini-icon.svg" alt="Google" />
+            </div>
+            <div class="logo-item">
+              <img src="/logos/meta-icon.svg" alt="Meta" />
+            </div>
+            <div class="logo-item">
+              <img src="/logos/deepseek-logo-icon.svg" alt="DeepSeek" />
+            </div>
+            <div class="logo-item">
+              <img src="/logos/qwen-color.svg" alt="Qwen" />
+            </div>
+            <div class="logo-item">
+              <img src="/logos/mistral-ai-icon.svg" alt="Mistral AI" />
+            </div>
+            <div class="logo-item">
+              <img src="/logos/microsoft-icon.svg" alt="Microsoft" />
+            </div>
+            <div class="logo-item">
+              <img src="/logos/grok-logo-icon.svg" alt="xAI" />
+            </div>
+            <div class="logo-item"><img src="/logos/nova.svg" alt="AWS" /></div>
+            <div class="logo-item">
+              <img src="/logos/perplexity-ai-icon.svg" alt="Perplexity" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="model-comparison" id="models">
+      <div class="section-title">
+        <h2>Select Models to Compare</h2>
+        <p>Find the perfect AI model for your specific needs</p>
+      </div>
+
+      <div class="comparison-container">
+        <!-- Left Column: Filters -->
+        <div class="filter-column">
+          <!-- Category Filters - Single Group -->
+          <div class="filter-group">
+            <h4>Sort by</h4>
+            <div class="search-filter">
+              <div class="search-input-wrapper">
+                <div class="search-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Search models"
+                />
+              </div>
+            </div>
+            <div class="filter-options">
+              <label class="filter-radio selected">
+                <input type="radio" name="category" value="intelligence" />
+                <span class="radio-text">Intelligence</span>
+              </label>
+              <label class="filter-radio">
+                <input type="radio" name="category" value="high-performance" />
+                <span class="radio-text">High-Performance</span>
+              </label>
+              <label class="filter-radio">
+                <input type="radio" name="category" value="affordable" />
+                <span class="radio-text">Affordable</span>
+              </label>
+              <label class="filter-radio">
+                <input type="radio" name="category" value="reasoning" />
+                <span class="radio-text">Reasoning & Knowledge</span>
+              </label>
+              <label class="filter-radio">
+                <input type="radio" name="category" value="context" />
+                <span class="radio-text">High Context Window</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Model Cards Grid -->
+        <div class="models-grid">
+          <!-- Model Card 1 -->
+          <div
+            class="model-card"
+            data-features="high-performance intelligence reasoning knowledge context-window"
+            data-provider="openai"
+          >
+            <div class="model-card-header">
+              <div class="model-logo">
+                <img src="/logos/openailogo.svg" alt="OpenAI GPT-4o logo" />
+              </div>
+              <span class="model-provider">OpenAI</span>
+            </div>
+            <h3 class="model-name">GPT-4o</h3>
+            <p class="model-summary">
+              The most powerful multimodal model, combining vision and language
+              abilities with high intelligence and reasoning.
+            </p>
+            <div class="model-tags">
+              <span class="model-tag tag-intelligence">Intelligence</span>
+              <span class="model-tag tag-reasoning">Reasoning</span>
+              <span class="model-tag tag-context">128k ctx</span>
+            </div>
+            <button class="btn btn-secondary model-select">Select</button>
+          </div>
+
+          <!-- Model Card 2 -->
+          <div
+            class="model-card"
+            data-features="high-performance intelligence reasoning knowledge"
+            data-provider="anthropic"
+          >
+            <div class="model-card-header">
+              <div class="model-logo">
+                <img
+                  src="/logos/claudelogo.svg"
+                  alt="Anthropic Claude 3.7 Sonnet logo"
+                />
+              </div>
+              <span class="model-provider">Anthropic</span>
+            </div>
+            <h3 class="model-name">Claude 3.7 Sonnet</h3>
+            <p class="model-summary">
+              Advanced AI with exceptional reasoning abilities, balanced
+              performance, and high accuracy.
+            </p>
+            <div class="model-tags">
+              <span class="model-tag tag-intelligence">Intelligence</span>
+              <span class="model-tag tag-reasoning">Reasoning</span>
+              <span class="model-tag tag-context">200k ctx</span>
+            </div>
+            <button class="btn btn-secondary model-select">Select</button>
+          </div>
+
+          <!-- Model Card 3 -->
+          <div
+            class="model-card"
+            data-features="affordable knowledge"
+            data-provider="google"
+          >
+            <div class="model-card-header">
+              <div class="model-logo">
+                <img
+                  src="/logos/google-gemini-icon.svg"
+                  alt="Google Gemini Pro logo"
+                />
+              </div>
+              <span class="model-provider">Google</span>
+            </div>
+            <h3 class="model-name">Gemini Pro</h3>
+            <p class="model-summary">
+              Cost-effective model with good general performance and up-to-date
+              knowledge backed by Google.
+            </p>
+            <div class="model-tags">
+              <span class="model-tag tag-affordable">Affordable</span>
+              <span class="model-tag tag-knowledge">Knowledge</span>
+              <span class="model-tag tag-context">32k ctx</span>
+            </div>
+            <button class="btn btn-secondary model-select">Select</button>
+          </div>
+
+          <!-- Model Card 4 -->
+          <div
+            class="model-card"
+            data-features="affordable"
+            data-provider="meta"
+          >
+            <div class="model-card-header">
+              <div class="model-logo">
+                <img src="/logos/meta-icon.svg" alt="Meta Llama 3 logo" />
+              </div>
+              <span class="model-provider">Meta</span>
+            </div>
+            <h3 class="model-name">Llama 3</h3>
+            <p class="model-summary">
+              Open-source model offering solid performance at a budget-friendly
+              cost. Great for most general tasks.
+            </p>
+            <div class="model-tags">
+              <span class="model-tag tag-affordable">Affordable</span>
+              <span class="model-tag tag-open">Open Source</span>
+              <span class="model-tag tag-context">8k ctx</span>
+            </div>
+            <button class="btn btn-secondary model-select">Select</button>
+          </div>
+
+          <!-- More model cards can be added here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Add this after the model-comparison section -->
+    <section class="comparison-results" id="model-comparison">
+      <div class="section-title">
+        <h2>Model Comparison</h2>
+        <p>Detailed comparison of selected models across key metrics</p>
+      </div>
+
+      <div class="comparison-section">
+        <!-- Add empty state -->
+        <div class="empty-state">
+          <p>Select models above to see their detailed comparison</p>
+        </div>
+
+        <!-- Existing table with display: none initially -->
+        <table class="comparison-table" style="display: none">
+          <thead>
+            <tr>
+              <th class="feature-column">Feature</th>
+              <!-- Model headers will be dynamically added here -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-name">
+                Artificial Analysis Intelligence Index
+                <span class="feature-unit">/100</span>
+              </td>
+              <!-- Model scores will be dynamically added here -->
+            </tr>
+            <tr>
+              <td class="feature-name">
+                Output Speed
+                <span class="feature-unit">Tokens/s</span>
+              </td>
+              <!-- Model values will be dynamically added here -->
+            </tr>
+            <tr>
+              <td class="feature-name">
+                Input Price
+                <span class="feature-unit">USD/1M Tokens</span>
+              </td>
+              <!-- Model values will be dynamically added here -->
+            </tr>
+            <tr>
+              <td class="feature-name">
+                Output Price
+                <span class="feature-unit">USD/1M Tokens</span>
+              </td>
+              <!-- Model values will be dynamically added here -->
+            </tr>
+            <tr>
+              <td class="feature-name">
+                Context Window
+                <span class="feature-unit">Tokens</span>
+              </td>
+              <!-- Model values will be dynamically added here -->
+            </tr>
+            <tr>
+              <td class="feature-name">
+                MMLU-PRO
+                <span class="feature-unit">Reasoning & Knowledge</span>
+              </td>
+              <!-- Model scores will be dynamically added here -->
+            </tr>
+            <tr>
+              <td class="feature-name">Creator</td>
+              <!-- Model values will be dynamically added here -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Add this after the comparison-section div -->
+      <div class="model-highlights">
+        <h3 class="highlights-title">Model Highlights</h3>
+
+        <!-- Add empty state -->
+        <div class="empty-state">
+          <p>Select models to see performance highlights</p>
+        </div>
+
+        <!-- Existing highlights grid with display: none initially -->
+        <div class="highlights-grid" style="display: none">
+          <div class="highlight-card intelligence">
+            <div class="highlight-header">
+              <div class="highlight-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 2L2 7L12 12L22 7L12 2Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M2 17L12 22L22 17"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M2 12L12 17L22 12"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <h4>Highest Intelligence</h4>
+            </div>
+            <div class="highlight-content">
+              <div class="model-info">
+                <img src="" alt="" class="model-logo" />
+                <div class="model-details">
+                  <span class="model-name"></span>
+                  <span class="model-creator"></span>
+                </div>
+              </div>
+              <div class="highlight-score">
+                <span class="score-label">Intelligence Score</span>
+                <span class="score-value"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="highlight-card speed">
+            <div class="highlight-header">
+              <div class="highlight-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 2V6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M12 18V22"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M4.93 4.93L7.76 7.76"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M16.24 16.24L19.07 19.07"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M2 12H6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M18 12H22"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M4.93 19.07L7.76 16.24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M16.24 7.76L19.07 4.93"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <h4>Fastest Speed</h4>
+            </div>
+            <div class="highlight-content">
+              <div class="model-info">
+                <img src="" alt="" class="model-logo" />
+                <div class="model-details">
+                  <span class="model-name"></span>
+                  <span class="model-creator"></span>
+                </div>
+              </div>
+              <div class="highlight-score">
+                <span class="score-label">Speed</span>
+                <span class="score-value"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="highlight-card price">
+            <div class="highlight-header">
+              <div class="highlight-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 2V22"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <h4>Best Price</h4>
+            </div>
+            <div class="highlight-content">
+              <div class="model-info">
+                <img src="" alt="" class="model-logo" />
+                <div class="model-details">
+                  <span class="model-name"></span>
+                  <span class="model-creator"></span>
+                </div>
+              </div>
+              <div class="highlight-score">
+                <span class="score-label">Output Price</span>
+                <span class="score-value"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Update the cost calculator section -->
+    <div class="cost-calculator" style="display: none">
+      <div class="section-title">
+        <h2>Cost Calculator</h2>
+        <p>
+          Compare monthly costs across models based on your expected token usage
+        </p>
+      </div>
+
+      <div class="calculator-container">
+        <div class="sliders-section">
+          <div class="slider-group">
+            <label for="input-tokens">
+              Monthly Input Tokens:
+              <span
+                class="info-icon"
+                title="Number of input tokens processed per month"
+                >?</span
+              >
+            </label>
+            <div class="slider-container">
+              <input
+                type="range"
+                id="input-tokens"
+                min="0"
+                max="10000000"
+                value="100000"
+                step="10000"
+              />
+              <span class="slider-value" id="input-tokens-value">100,000</span>
+            </div>
+          </div>
+
+          <div class="slider-group">
+            <label for="output-tokens">
+              Monthly Output Tokens:
+              <span
+                class="info-icon"
+                title="Number of output tokens generated per month"
+                >?</span
+              >
+            </label>
+            <div class="slider-container">
+              <input
+                type="range"
+                id="output-tokens"
+                min="0"
+                max="10000000"
+                value="100000"
+                step="10000"
+              />
+              <span class="slider-value" id="output-tokens-value">100,000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="models-cost">
+          <div id="models-cost-grid" class="models-cost-grid">
+            <!-- Cards will be dynamically inserted here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add this after the model-comparison section -->
+    <section class="model-finder" id="find-your-model">
+      <div class="model-finder-wrapper">
+        <div class="section-title">
+          <h2>Find Your Perfect AI Model</h2>
+          <p>
+            Get personalized model recommendations based on your specific needs
+          </p>
+        </div>
+
+        <div class="finder-container">
+          <div class="finder-layout">
+            <!-- Left Side: Use Case Input -->
+            <div class="use-case-section">
+              <div class="use-case-input">
+                <h3>Describe Your Use Case</h3>
+                <textarea
+                  id="use-case-description"
+                  placeholder="Tell us what you're looking to accomplish with AI..."
+                  rows="4"
+                ></textarea>
+              </div>
+
+              <div class="use-case-divider">
+                <span>or</span>
+              </div>
+
+              <div class="common-cases">
+                <h3>Select a Common Use Case</h3>
+                <div class="case-buttons">
+                  <button class="case-button" data-case="content">
+                    <div class="case-icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8 2v4M16 2v4M4 10h16"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <span>Content Creation & Writing</span>
+                  </button>
+
+                  <button class="case-button" data-case="data">
+                    <div class="case-icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M21 12H3M21 6H3M21 18H3"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <span>Data Analysis & Visualization</span>
+                  </button>
+
+                  <button class="case-button" data-case="customer">
+                    <div class="case-icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <span>Customer Service & Chatbots</span>
+                  </button>
+
+                  <button class="case-button" data-case="research">
+                    <div class="case-icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <span>Research & Information Synthesis</span>
+                  </button>
+
+                  <button class="case-button" data-case="code">
+                    <div class="case-icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M16 18L22 12L16 6"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8 6L2 12L8 18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <span>Code Generation</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Recommendations -->
+            <div class="recommendations-section">
+              <h3>Recommended Models</h3>
+              <div class="recommendations-grid">
+                <!-- Recommendations will be dynamically inserted here -->
+                <div class="recommendation-placeholder">
+                  <p>
+                    Select a use case or describe your needs to see recommended
+                    models
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="customize-comparison" id="customize-comparison">
+      <div class="customize-wrapper">
+        <div class="section-title">
+          <h2>Customize Your Comparison</h2>
+          <p>
+            Adjust these settings to find models that match your specific
+            requirements
+          </p>
+        </div>
+
+        <div class="customize-layout">
+          <!-- Feature Ranking -->
+          <div class="feature-ranking">
+            <h3>Rank Features by Importance</h3>
+            <div class="ranking-list">
+              <div class="ranking-item" draggable="true">
+                <div class="drag-handle">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M8 9H16M8 15H16"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <span>Context Window Size</span>
+              </div>
+              <div class="ranking-item" draggable="true">
+                <div class="drag-handle">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M8 9H16M8 15H16"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <span>Reasoning Capabilities</span>
+              </div>
+              <div class="ranking-item" draggable="true">
+                <div class="drag-handle">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M8 9H16M8 15H16"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <span>Speed & Performance</span>
+              </div>
+              <div class="ranking-item" draggable="true">
+                <div class="drag-handle">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M8 9H16M8 15H16"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <span>Cost Efficiency</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Requirement Sliders -->
+          <div class="requirement-sliders">
+            <h3>Set Minimum Requirements</h3>
+            <div class="slider-group">
+              <label for="context-slider">
+                <span>Context Window Size</span>
+                <span class="slider-value">32K tokens</span>
+              </label>
+              <input
+                type="range"
+                id="context-slider"
+                min="0"
+                max="100"
+                value="50"
+              />
+            </div>
+            <div class="slider-group">
+              <label for="reasoning-slider">
+                <span>Reasoning Capabilities</span>
+                <span class="slider-value">High</span>
+              </label>
+              <input
+                type="range"
+                id="reasoning-slider"
+                min="0"
+                max="100"
+                value="75"
+              />
+            </div>
+            <div class="slider-group">
+              <label for="speed-slider">
+                <span>Speed & Performance</span>
+                <span class="slider-value">Medium</span>
+              </label>
+              <input
+                type="range"
+                id="speed-slider"
+                min="0"
+                max="100"
+                value="50"
+              />
+            </div>
+            <div class="slider-group">
+              <label for="cost-slider">
+                <span>Cost Efficiency</span>
+                <span class="slider-value">Balanced</span>
+              </label>
+              <input
+                type="range"
+                id="cost-slider"
+                min="0"
+                max="100"
+                value="60"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Personalized Recommendations -->
+        <div class="personalized-recommendations">
+          <h3>Personalized Recommendations</h3>
+          <div class="recommendations-grid personalized-grid">
+            <div class="recommendation-placeholder">
+              <p>
+                Adjust the settings above to see personalized model
+                recommendations
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Update the footer section -->
+    <footer class="footer">
+      <div class="footer-wrapper">
+        <!-- Terms Section (moved from appendix) -->
+        <div class="footer-terms">
+          <div class="terms-grid">
+            <div class="term-card">
+              <h3>Context Window Size</h3>
+              <p>
+                The maximum number of tokens (words or word pieces) that a model
+                can process at once. Larger context windows allow the model to
+                understand and maintain coherence across longer texts.
+              </p>
+            </div>
+            <div class="term-card">
+              <h3>Intelligence Score</h3>
+              <p>
+                A comprehensive measure of a model's cognitive capabilities,
+                including reasoning, analysis, and problem-solving abilities.
+                Higher scores indicate better performance on complex
+                intellectual tasks.
+              </p>
+            </div>
+            <div class="term-card">
+              <h3>Input Price</h3>
+              <p>
+                The cost per million tokens for processing input text. This is
+                what you pay for the text you send to the model for analysis or
+                completion. Lower input prices reduce costs for large-scale
+                processing.
+              </p>
+            </div>
+            <div class="term-card">
+              <h3>Output Price</h3>
+              <p>
+                The cost per million tokens for generated text. This is what you
+                pay for the model's responses. Output prices are typically
+                higher than input prices and significantly impact overall
+                operational costs.
+              </p>
+            </div>
+            <div class="term-card">
+              <h3>Output Speed</h3>
+              <p>
+                Measured in tokens per second, this indicates how quickly a
+                model generates responses. Higher speeds result in faster
+                response times and better real-time performance, crucial for
+                interactive applications.
+              </p>
+            </div>
+            <div class="term-card">
+              <h3>Reasoning Capabilities</h3>
+              <p>
+                A model's ability to analyze complex information, make logical
+                connections, and solve problems. Higher reasoning capabilities
+                indicate better performance on tasks requiring critical thinking
+                and deduction.
+              </p>
+            </div>
+            <div class="term-card">
+              <h3>Cost Efficiency</h3>
+              <p>
+                The overall economic value, considering both input and output
+                costs relative to performance. More cost-efficient models
+                deliver strong capabilities while maintaining reasonable
+                operational expenses.
+              </p>
+            </div>
+            <div class="term-card">
+              <h3>MMLU Score</h3>
+              <p>
+                A standardized benchmark measuring a model's performance across
+                multiple fields including science, humanities, and professional
+                knowledge. Higher scores indicate broader and deeper
+                understanding.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="footer-nav">
+          <div class="footer-column">
+            <h3>Navigation</h3>
+            <ul>
+              <li><a href="#models">Models</a></li>
+              <li><a href="#model-comparison">Model Comparison</a></li>
+              <li><a href="#find-your-model">Find Your Model</a></li>
+              <li><a href="#customize-comparison">Customize Comparison</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Contact</h3>
+            <ul>
+              <li><a href="mailto:hello@chidi.tech">Email Us</a></li>
+              <li><a href="https://chidi.tech">Chidi.tech</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+
+    <!-- Add Comparison Tray here -->
+    <div class="comparison-tray">
+      <div class="selected-models">
+        <!-- Selected model pills will be dynamically added here -->
+      </div>
+      <a href="#compare" class="cta-button">Compare (0)</a>
+    </div>
+  </body>
+</html>
