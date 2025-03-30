@@ -11,12 +11,12 @@ function setupMarquee() {
 
   // Clone the content MULTIPLE TIMES to ensure we have enough content
   // This helps create a more seamless appearance
-  const clone1 = marqueeContent.cloneNode(true);
+  const clone1 = marqueeContent.cloneNode(true) as HTMLElement;
   clone1.setAttribute('aria-hidden', 'true');
   document.querySelector('.marquee-track')?.appendChild(clone1);
 
   // Add a second clone for even more smoothness
-  const clone2 = marqueeContent.cloneNode(true);
+  const clone2 = marqueeContent.cloneNode(true) as HTMLElement;
   clone2.setAttribute('aria-hidden', 'true');
   document.querySelector('.marquee-track')?.appendChild(clone2);
 
